@@ -25,6 +25,7 @@ import { createMaterialBottomTabNavigator} from 'react-navigation-material-botto
 import * as s from './src/views/';
 import { OrdersTabNavigator, TabBarIcon } from './src/components';
 
+// TODO: Fix TopTabNav so it isn't cut off on iOS.
 const RootTabs = createMaterialBottomTabNavigator(
     {
         location: s.LocationScreen,
@@ -60,7 +61,12 @@ const AuthStack = createStackNavigator(
 
 const RootStack = createStackNavigator(
     {
-        home: RootTabs,
+        home: {
+            screen: RootTabs,
+            navigationOptions: () => ({
+                header: null
+            })
+        },
         aboutUs: s.AboutUsScreen,
         checkInScan: s.CheckInScanScreen,
         help: s.HelpScreen,
@@ -88,7 +94,7 @@ const RootSwitch = createSwitchNavigator(
         auth: {
             screen: AuthStack
         },
-        root: {
+        app: {
             screen: RootStack
         }
     },
@@ -99,13 +105,13 @@ const RootSwitch = createSwitchNavigator(
 
 // export default App = createAppContainer(RouteTabs);
 // export default App = createAppContainer(OrdersTabNavigator);
-const RootApp = createAppContainer(RootTabs);
+const RootApp = createAppContainer(RootSwitch);
 
 export default App = () => {
     return (
-        <SafeAreaView style={{flex: 1}}>
+        // <SafeAreaView style={{flex: 1}}>
             <RootApp/>
-        </SafeAreaView>
+        // </SafeAreaView>
     );
 }
 
