@@ -1,19 +1,19 @@
+
 import React, { Component } from 'react';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import {
-    RecentOrdersScreen,
-    RewardsScreen,
-    FavoriteOrdersScreen
-} from '../views';
+// import {
+//     RecentOrdersScreen,
+//     RewardsScreen,
+//     FavoriteOrdersScreen
+// } from '../views';
+import FavoriteOrdersScreen from '../views/FavoriteOrdersScreen'
+import RecentOrderScreen from '../views/RecentOrdersScreen'
 
-export default OrdersTabNavigator = createMaterialTopTabNavigator(
+export default createMaterialTopTabNavigator(
     {
-        RewardsScreen,
+        RecentOrderScreen,
         FavoriteOrdersScreen,
     }
-    // {
-    //   initialRouteName: 'Recent',
-    // }
 );
 
 // const RouteNavigator = createAppContainer(RouteTabs);

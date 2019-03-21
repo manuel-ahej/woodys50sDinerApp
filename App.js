@@ -12,35 +12,47 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import {
     LocationScreen,
-    // OrderScreen,
-    RecentOrdersScreen,
     RewardsScreen,
     InboxScreen,
     MoreScreen
 } from './src/views';
-import { OrdersTabNavigator } from './src/components';
+import { OrdersTabNavigator, TabBarIcon } from './src/components';
 
 // const OrderTabs = crea
 
-const RouteTabs = createBottomTabNavigator(
+const RouteTabs = createMaterialBottomTabNavigator(
     {
         location: LocationScreen,
-        // order: RecentOrdersScreen,
-        order: OrdersTabNavigator,
+        order: {
+            screen: OrdersTabNavigator, 
+            navigationOptions: () => ({
+                tabBarColor: '#EC44B5',
+                tabBarLabel: 'Order',
+                tabBarIcon: TabBarIcon('Mfood'),
+            })
+        },
         rewards: RewardsScreen,
         inbox: InboxScreen,
         more: MoreScreen,
     },
     {
-        initialRouteName: 'rewards',
+        initialRouteName: 'rewards'
     }
 );
 
-export default App = createAppContainer(RouteTabs);
+// export default App = createAppContainer(RouteTabs);
+// export default App = createAppContainer(OrdersTabNavigator);
+const RootApp = createAppContainer(RouteTabs);
+
+export default App = () =>
+    <SafeAreaView style={{flex: 1}}>
+        <RootApp/>
+    </SafeAreaView>;
 
 // export default class App extends Component {
 //     render() {
@@ -48,4 +60,7 @@ export default App = createAppContainer(RouteTabs);
 //     }
 // }
 
+// const styles = StyleSheet.create({
+//     flex: 1,
 
+// });

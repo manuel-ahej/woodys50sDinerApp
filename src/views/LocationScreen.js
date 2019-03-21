@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {  TabBarIcon } from '../components';
 
 export default class LocationScreen extends Component {
+    static navigationOptions = {
+        tabBarColor: 'black',
+        tabBarLabel: 'Location',
+        tabBarIcon: TabBarIcon('Fbuilding')
+    }
     render() {
         return(
             <View style={styles.container}>
