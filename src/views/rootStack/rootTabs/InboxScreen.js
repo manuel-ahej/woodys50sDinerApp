@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {  TabBarIcon } from '../components';
+import {  TabBarIcon } from '../../../components';
 
-export default class MoreScreen extends Component {
+export default class InboxScreen extends Component {
     static navigationOptions = {
-        tabBarColor: 'white',
-        tabBarLabel: 'More',
-        tabBarIcon: TabBarIcon('Edots-three-horizontal')
+        tabBarColor: '#76CCE3',
+        tabBarLabel: 'Inbox',
+        tabBarIcon: TabBarIcon('Ebox')
     };
 
     render() {
         return(
             <View style={styles.container}>
-                <Text sytle={styles.text}>More!</Text>
+                <Text sytle={styles.text}>Inbox!</Text>
             </View>
         );
     }

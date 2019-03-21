@@ -6,8 +6,8 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 //     RewardsScreen,
 //     FavoriteOrdersScreen
 // } from '../views';
-import FavoriteOrdersScreen from '../views/FavoriteOrdersScreen'
-import RecentOrderScreen from '../views/RecentOrdersScreen'
+import FavoriteOrdersScreen from '../views/rootStack/rootTabs/orderTabs/FavoriteOrdersScreen';
+import RecentOrderScreen from '../views/rootStack/rootTabs/orderTabs/RecentOrdersScreen';
 
 export default createMaterialTopTabNavigator(
     {

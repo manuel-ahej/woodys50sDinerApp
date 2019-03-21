@@ -13,21 +13,21 @@
 
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-import {
-    LocationScreen,
-    RewardsScreen,
-    InboxScreen,
-    MoreScreen
-} from './src/views';
+// import {
+//     SplashScreen,
+//     LocationScreen,
+//     RewardsScreen,
+//     InboxScreen,
+//     MoreScreen
+// } from './src/views/';
+import * as s from './src/views/';
 import { OrdersTabNavigator, TabBarIcon } from './src/components';
 
-// const OrderTabs = crea
-
-const RouteTabs = createMaterialBottomTabNavigator(
+const RootTabs = createMaterialBottomTabNavigator(
     {
-        location: LocationScreen,
+        location: s.LocationScreen,
         order: {
             screen: OrdersTabNavigator, 
             navigationOptions: () => ({
@@ -36,23 +36,78 @@ const RouteTabs = createMaterialBottomTabNavigator(
                 tabBarIcon: TabBarIcon('Mfood'),
             })
         },
-        rewards: RewardsScreen,
-        inbox: InboxScreen,
-        more: MoreScreen,
+        rewards: s.RewardsScreen,
+        inbox: s.InboxScreen,
+        more: s.MoreScreen,
     },
     {
         initialRouteName: 'rewards'
     }
 );
 
+const AuthStack = createStackNavigator(
+    {
+        signUp: s.SignUpScreen,
+        signIn: s.SignInScreen,
+        authHelp: s.AuthHelpScreen,
+        forgotPass: s.ForgotPasswordScreen,
+        passRecovery: s.PasswordRecoveryScreen
+    },
+    {
+        initialRouteName: 'signUp',
+    }
+);
+
+const RootStack = createStackNavigator(
+    {
+        home: RootTabs,
+        aboutUs: s.AboutUsScreen,
+        checkInScan: s.CheckInScanScreen,
+        help: s.HelpScreen,
+        inviteFriends: s.InviteFriendsScreen,
+        locationDetails: s.LocationDetailsScreen,
+        messageDetails: s.MessageDetailsScreen,
+        nutritionInfo: s.NutritionInfoScreen,
+        prevOrderDetails: s.PreviousOrderDetailsScreen,
+        privacyTerms: s.PrivacyTermsScreen,
+        profile: s.ProfileScreen,
+        redeem: s.RedeemScreen,
+        socialMedia: s.SocialMediaScreen,
+        startNewOrder: s.StartNewOrderScreen
+    },
+    {
+        initialRouteName: 'home'
+    }
+);
+
+const RootSwitch = createSwitchNavigator(
+    {
+        splash: {
+            screen: s.SplashScreen
+        },
+        auth: {
+            screen: AuthStack
+        },
+        root: {
+            screen: RootStack
+        }
+    },
+    {
+        initialRouteName: 'splash'
+    }
+);
+
 // export default App = createAppContainer(RouteTabs);
 // export default App = createAppContainer(OrdersTabNavigator);
-const RootApp = createAppContainer(RouteTabs);
+const RootApp = createAppContainer(RootTabs);
 
-export default App = () =>
-    <SafeAreaView style={{flex: 1}}>
-        <RootApp/>
-    </SafeAreaView>;
+export default App = () => {
+    return (
+        <SafeAreaView style={{flex: 1}}>
+            <RootApp/>
+        </SafeAreaView>
+    );
+}
 
 // export default class App extends Component {
 //     render() {
