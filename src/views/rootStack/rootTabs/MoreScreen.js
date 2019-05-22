@@ -4,7 +4,7 @@ import {  TabBarIcon } from '../../../components';
 
 export default class MoreScreen extends Component {
     static navigationOptions = {
-        tabBarColor: 'white',
+        tabBarColor: 'lightgrey',
         tabBarLabel: 'More',
         tabBarIcon: TabBarIcon('Edots-three-horizontal')
     };
