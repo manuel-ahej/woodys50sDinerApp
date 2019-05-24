@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import {Platform} from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 // import {
 //     RecentOrdersScreen,
@@ -13,6 +14,11 @@ export default createMaterialTopTabNavigator(
     {
         RecentOrderScreen,
         FavoriteOrdersScreen,
+    },
+    {
+        tabBarOptions: {
+            style: {paddingTop: Platform.OS === 'ios' ? 30 : 0}
+        }
     }
 );
 

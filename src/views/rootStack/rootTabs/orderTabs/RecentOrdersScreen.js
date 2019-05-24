@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 export default class RecentOrdersScreen extends Component {
     constructor(props) {
         super(props);
+    }
+    navigationOptions = {
+        headerStyle: {
+            height: 20,
+            width: Dimensions.get('window').width,
+            backgroundColor: 'red',
+        }
     }
 
     render() {
