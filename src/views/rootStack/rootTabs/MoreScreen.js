@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {  TabBarIcon } from '../../../components';
 
-export default class RecentOrdersScreen extends Component {
+export default class MoreScreen extends Component {
+    static navigationOptions = {
+        tabBarColor: 'lightgrey',
+        tabBarLabel: 'More',
+        tabBarIcon: TabBarIcon('Edots-three-horizontal')
+    };
+
     render() {
         return(
             <View style={styles.container}>
-                <Text sytle={styles.text}>Recent Order!</Text>
+                <Text sytle={styles.text}>More!</Text>
             </View>
         );
     }

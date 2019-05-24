@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export default class InboxScreen extends Component {
+export default class PromoCodeScreen extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <Text sytle={styles.text}>Inbox!</Text>
+                <Text sytle={styles.text}>PromoCode!</Text>
             </View>
         );
     }
@@ -14,8 +14,8 @@ export default class InboxScreen extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+    //   justifyContent: 'center',
+    //   alignItems: 'center',
       backgroundColor: '#F5FCFF',
     },
     text: {

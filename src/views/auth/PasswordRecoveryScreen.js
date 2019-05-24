@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export default class RewardsScreen extends Component {
+export default class PasswordRecoveryScreen extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <Text sytle={styles.text}>Rewards!</Text>
+                <Text sytle={styles.text}>PasswordRecovery!</Text>
             </View>
         );
     }
@@ -14,8 +14,8 @@ export default class RewardsScreen extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+    //   justifyContent: 'center',
+    //   alignItems: 'center',
       backgroundColor: '#F5FCFF',
     },
     text: {

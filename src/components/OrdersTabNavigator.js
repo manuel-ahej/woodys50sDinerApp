@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import {
-    RecentOrdersScreen,
-    RewardsScreen,
-    FavoriteOrdersScreen
-} from '../views';
 
-export default OrdersTabNavigator = createMaterialTopTabNavigator(
+import React, { Component } from 'react';
+import {Platform} from 'react-native';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+// import {
+//     RecentOrdersScreen,
+//     RewardsScreen,
+//     FavoriteOrdersScreen
+// } from '../views';
+import FavoriteOrdersScreen from '../views/rootStack/rootTabs/orderTabs/FavoriteOrdersScreen';
+import RecentOrderScreen from '../views/rootStack/rootTabs/orderTabs/RecentOrdersScreen';
+
+export default createMaterialTopTabNavigator(
     {
-        RewardsScreen,
+        RecentOrderScreen,
         FavoriteOrdersScreen,
+    },
+    {
+        tabBarOptions: {
+            style: {paddingTop: Platform.OS === 'ios' ? 30 : 0}
+        }
     }
-    // {
-    //   initialRouteName: 'Recent',
-    // }
 );
 
 // const RouteNavigator = createAppContainer(RouteTabs);

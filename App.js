@@ -12,35 +12,114 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import {
-    LocationScreen,
-    // OrderScreen,
-    RecentOrdersScreen,
-    RewardsScreen,
-    InboxScreen,
-    MoreScreen
-} from './src/views';
-import { OrdersTabNavigator } from './src/components';
+import { StatusBar, View, Dimensions } from 'react-native';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+// import {
+//     SplashScreen,
+//     LocationScreen,
+//     RewardsScreen,
+//     InboxScreen,
+//     MoreScreen
+// } from './src/views/';
+import * as s from './src/views/';
+import { OrdersTabNavigator, TabBarIcon } from './src/components';
 
-// const OrderTabs = crea
-
-const RouteTabs = createBottomTabNavigator(
+// TODO: Fix TopTabNav so it isn't cut off on iOS.
+const RootTabs = createMaterialBottomTabNavigator(
     {
-        location: LocationScreen,
-        // order: RecentOrdersScreen,
-        order: OrdersTabNavigator,
-        rewards: RewardsScreen,
-        inbox: InboxScreen,
-        more: MoreScreen,
+        location: s.LocationScreen,
+        order: {
+            screen: OrdersTabNavigator, 
+            navigationOptions: () => ({
+                tabBarColor: '#EC44B5',
+                tabBarLabel: 'Order',
+                tabBarIcon: TabBarIcon('Mfood'),
+            })
+        },
+        rewards: s.RewardsScreen,
+        inbox: s.InboxScreen,
+        more: s.MoreScreen,
     },
     {
-        initialRouteName: 'rewards',
+        initialRouteName: 'rewards'
     }
 );
 
-export default App = createAppContainer(RouteTabs);
+const AuthStack = createStackNavigator(
+    {
+        signUp: s.SignUpScreen,
+        signIn: s.SignInScreen,
+        authHelp: s.AuthHelpScreen,
+        forgotPass: s.ForgotPasswordScreen,
+        passRecovery: s.PasswordRecoveryScreen
+    },
+    {
+        initialRouteName: 'signUp',
+    }
+);
+
+const RootStack = createStackNavigator(
+    {
+        home: {
+            screen: RootTabs,
+            navigationOptions: () => ({
+                header: null
+            })
+        },
+        aboutUs: s.AboutUsScreen,
+        checkInScan: s.CheckInScanScreen,
+        help: s.HelpScreen,
+        inviteFriends: s.InviteFriendsScreen,
+        locationDetails: s.LocationDetailsScreen,
+        messageDetails: s.MessageDetailsScreen,
+        nutritionInfo: s.NutritionInfoScreen,
+        prevOrderDetails: s.PreviousOrderDetailsScreen,
+        privacyTerms: s.PrivacyTermsScreen,
+        profile: s.ProfileScreen,
+        redeem: s.RedeemScreen,
+        socialMedia: s.SocialMediaScreen,
+        startNewOrder: s.StartNewOrderScreen
+    },
+    {
+        initialRouteName: 'home'
+    }
+);
+
+const RootSwitch = createSwitchNavigator(
+    {
+        splash: {
+            screen: s.SplashScreen
+        },
+        auth: {
+            screen: AuthStack
+        },
+        app: {
+            screen: RootStack
+        }
+    },
+    {
+        initialRouteName: 'splash'
+    }
+);
+
+// export default App = createAppContainer(RouteTabs);
+// export default App = createAppContainer(OrdersTabNavigator);
+const RootApp = createAppContainer(RootSwitch);
+
+export default App = () => {
+    return (
+        // <SafeAreaView style={{flex: 1}}>
+            // <View style={{flex:1}}>
+            //     <StatusBar 
+            //         // barStyle='light-content'
+            //         translucent='false'
+            //     />
+                <RootApp/>
+            // {/* </View> */}
+        // </SafeAreaView>
+    );
+}
 
 // export default class App extends Component {
 //     render() {
@@ -48,4 +127,7 @@ export default App = createAppContainer(RouteTabs);
 //     }
 // }
 
+// const styles = StyleSheet.create({
+//     flex: 1,
 
+// });
