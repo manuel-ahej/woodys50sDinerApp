@@ -12,7 +12,7 @@
  */
 
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { StatusBar, View, Dimensions } from 'react-native';
 import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 // import {
@@ -110,7 +110,13 @@ const RootApp = createAppContainer(RootSwitch);
 export default App = () => {
     return (
         // <SafeAreaView style={{flex: 1}}>
-            <RootApp/>
+            // <View style={{flex:1}}>
+            //     <StatusBar 
+            //         // barStyle='light-content'
+            //         translucent='false'
+            //     />
+                <RootApp/>
+            // {/* </View> */}
         // </SafeAreaView>
     );
 }
