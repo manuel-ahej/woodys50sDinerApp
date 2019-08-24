@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EIcon from 'react-native-vector-icons/Entypo';
-import FIcon from 'react-native-vector-icons/FontAwesome5';
+import AIcon from 'react-native-vector-icons/AntDesign';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -16,9 +16,9 @@ const TabBarIcon = name => ({tintColor}) => {
                     size={24}
                 />
             );
-        case ('F'):
+        case ('A'):
             return (
-                <FIcon
+                <AIcon
                     style={{backgroundColor: 'transparent'}}
                     name={`${name.substr(1)}`}
                     color={tintColor}

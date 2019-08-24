@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {  TabBarIcon } from '../../../components';
+import colors from '../../../constants/colors';
 
-export default class LocationScreen extends Component {
+export default class InfoScreen extends Component {
     static navigationOptions = {
-        tabBarColor: 'black',
-        tabBarLabel: 'Location',
-        tabBarIcon: TabBarIcon('Fbuilding')
+        tabBarColor: colors.yellow,
+        tabBarLabel: 'Info',
+        tabBarIcon: TabBarIcon('Ainfocirlceo')
     }
     render() {
         return(
             <View style={styles.container}>
-                <Text sytle={styles.text}>Location!</Text>
+                <Text sytle={styles.text}>Info!</Text>
             </View>
         );
     }

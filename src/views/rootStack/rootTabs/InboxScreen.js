@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {  TabBarIcon } from '../../../components';
+import colors from '../../../constants/colors';
 
 export default class InboxScreen extends Component {
     static navigationOptions = {
-        tabBarColor: '#76CCE3',
+        tabBarColor: colors.pink,
         tabBarLabel: 'Inbox',
         tabBarIcon: TabBarIcon('Ebox')
     };

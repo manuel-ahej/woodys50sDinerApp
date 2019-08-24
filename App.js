@@ -17,22 +17,23 @@ import { createStackNavigator, createSwitchNavigator, createAppContainer } from 
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 // import {
 //     SplashScreen,
-//     LocationScreen,
+//     InfoScreen,
 //     RewardsScreen,
 //     InboxScreen,
 //     MoreScreen
 // } from './src/views/';
 import * as s from './src/views/';
 import { OrdersTabNavigator, TabBarIcon } from './src/components';
+import colors from './src/constants/colors';
 
 // TODO: Fix TopTabNav so it isn't cut off on iOS.
 const RootTabs = createMaterialBottomTabNavigator(
     {
-        location: s.LocationScreen,
+        info: s.InfoScreen,
         order: {
             screen: OrdersTabNavigator, 
             navigationOptions: () => ({
-                tabBarColor: '#EC44B5',
+                tabBarColor: colors.blue,
                 tabBarLabel: 'Order',
                 tabBarIcon: TabBarIcon('Mfood'),
             })

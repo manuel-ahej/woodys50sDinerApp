@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {  TabBarIcon } from '../../../components';
+import colors from '../../../constants/colors';
 
 export default class MoreScreen extends Component {
     static navigationOptions = {
-        tabBarColor: 'lightgrey',
+        tabBarColor: colors.purple,
         tabBarLabel: 'More',
         tabBarIcon: TabBarIcon('Edots-three-horizontal')
     };
