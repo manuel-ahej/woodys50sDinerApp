@@ -5,12 +5,13 @@ export default class RecentOrdersScreen extends Component {
     constructor(props) {
         super(props);
     }
-    navigationOptions = {
-        headerStyle: {
-            height: 20,
-            width: Dimensions.get('window').width,
-            backgroundColor: 'red',
-        }
+    static navigationOptions = {
+        tabBarLabel: 'Recent Orders',
+        // headerStyle: {
+        //     // height: 20,
+        //     width: Dimensions.get('window').width,
+        //     backgroundColor: 'red',
+        // }
     }
 
     render() {

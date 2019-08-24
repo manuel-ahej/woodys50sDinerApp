@@ -34,7 +34,7 @@ export * from './auth';
 export * from './rootStack';
 
 // Tabs
-// export {LocationScreen, RewardsScreen, InboxScreen, MoreScreen} from './rootStack/rootTabs';
+// export {InfoScreen, RewardsScreen, InboxScreen, MoreScreen} from './rootStack/rootTabs';
 export * from './rootStack/rootTabs';
 
 // Order
